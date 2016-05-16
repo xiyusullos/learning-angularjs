@@ -1,0 +1,25 @@
+<!-- 1.html -->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title></title>
+  <script src="../js/angular-1.2.13.js"></script>
+</head>
+<body>
+
+<my-directive></my-directive>
+
+</body>
+
+<script>
+  angular.module('myApp', [])
+    .directive('myDirective', function() {
+      return {
+        restrict: 'E',
+        template: '<a href="http://google.com" title="Clicke me">Clicke me to go to Google</a>'
+      };
+    })
+  ;
+</script>
+
+</html>
