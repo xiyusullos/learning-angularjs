@@ -1,0 +1,37 @@
+<!-- 1.html -->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title></title>
+  <script src="../js/angular-1.2.13.js"></script>
+</head>
+<body>
+
+
+
+<div my-directive
+  some-attr="{{myUrl}}"
+  my-link-text="Click me to Baidu">
+</div>
+
+</div>
+
+</body>
+
+<script>
+  angular.module('myApp', [])
+    .directive('myDirective', function() {
+      return {
+        restrict: 'A',
+        replace: true,
+        scope: {
+          myUrl: '@someAttr',
+          myLinkText: '@'
+        },
+        template: '<div><input type="text" ng-model="myUrl" /><a href="{{myUrl}}">{{myLinkText}}</a></div>'
+      };
+    })
+  ;
+</script>
+
+</html>
