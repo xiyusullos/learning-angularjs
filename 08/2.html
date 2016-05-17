@@ -7,10 +7,11 @@
 </head>
 <body>
 
-
+<label>Their URL field: <label>
+<input type="text" ng-model="theirUrl" />
 
 <div my-directive
-  some-attr="{{myUrl}}"
+  some-attr="theirUrl"
   my-link-text="Click me to Baidu">
 </div>
 
@@ -25,10 +26,16 @@
         restrict: 'A',
         replace: true,
         scope: {
-          myUrl: '@someAttr',
+          myUrl: '=someAttr',
           myLinkText: '@'
         },
-        template: '<div><input type="text" ng-model="myUrl" /><a href="{{myUrl}}">{{myLinkText}}</a></div>'
+        template: '\
+        <div>\
+          <label>My URL field: </label>\
+          <input type="text" ng-model="myUrl" />\
+          <a href="{{myUrl}}">{{myLinkText}}</a>\
+        </div>\
+        '
       };
     })
   ;
